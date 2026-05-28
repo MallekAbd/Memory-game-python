@@ -1,3 +1,9 @@
+---
+name: researcher
+description: "Combined reference of all research skills — literature review, LaTeX, peer review, project management, bibliography validation, and more. Use as a lookup when you need the instructions for any research-related skill."
+allowed-tools: Read, Write, Edit, Bash, Glob, Grep, WebSearch, WebFetch
+---
+
 # Research Skills Reference
 
 A combined reference of all available research skills.
