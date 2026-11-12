@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 780" width="1360" height="780" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#334155"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#b45309"/></marker>
+    <style>
+      .t{font-size:17px;font-weight:700;fill:#0f172a}.m{font-size:12px;fill:#64748b;font-family:Menlo,Consolas,monospace}
+      .s{font-size:13px;fill:#334155}.c{font-size:14px;font-weight:600;fill:#0f172a}
+      .chip{fill:#fff;stroke:#94a3b8;stroke-width:1.2}.tier{stroke-width:1.5}
+      .goods{stroke:#b45309;stroke-width:2.5;fill:none}.gl{font-size:12px;fill:#b45309;font-weight:600}
+      .msg{stroke:#334155;stroke-width:1.8;fill:none}
+    </style>
+  </defs>
+  <rect width="1360" height="780" fill="#ffffff"/>
+  <text x="40" y="42" font-size="24" font-weight="700" fill="#0f172a">Supply-chain Multi-Agent System — architecture</text>
+  <text x="40" y="64" class="s">Autonomous agents per tier, linked only by JSON messages; deals are reached by automated negotiation.</text>
+
+  <!-- Suppliers -->
+  <rect class="tier" x="40" y="90" width="380" height="250" rx="10" fill="#eff6ff" stroke="#3b82f6"/>
+  <text x="58" y="116" class="t">Suppliers</text><text x="402" y="116" text-anchor="end" class="m">agents.py</text>
+  <g text-anchor="middle" class="c">
+    <rect class="chip" x="58" y="130" width="105" height="40" rx="6"/><text x="110" y="155">Supplier-A</text>
+    <rect class="chip" x="177" y="130" width="105" height="40" rx="6"/><text x="229" y="155">Supplier-B</text>
+    <rect class="chip" x="297" y="130" width="105" height="40" rx="6"/><text x="349" y="155">Supplier-C</text>
+  </g>
+  <rect x="58" y="186" width="344" height="138" rx="8" fill="#fff" stroke="#3b82f6" stroke-dasharray="6 4" stroke-width="1.4"/>
+  <text x="72" y="208" class="c">Adapter agent (Legacy-ERP)</text><text x="388" y="208" text-anchor="end" class="m">external.py</text>
+  <text x="72" y="227" class="s">translates bus messages ⇄ external API</text>
+  <rect x="72" y="240" width="316" height="70" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="230" y="268" text-anchor="middle" class="c">Independently developed system</text>
+  <text x="230" y="290" text-anchor="middle" class="s">own JSON API, rule-based price list</text>
+
+  <!-- Manufacturers -->
+  <rect class="tier" x="510" y="90" width="260" height="250" rx="10" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="528" y="116" class="t">Manufacturers</text><text x="752" y="116" text-anchor="end" class="m">agents.py</text>
+  <g text-anchor="middle" class="c">
+    <rect class="chip" x="528" y="130" width="105" height="40" rx="6"/><text x="580" y="155">Maker-1</text>
+    <rect class="chip" x="647" y="130" width="105" height="40" rx="6"/><text x="699" y="155">Maker-2</text>
+  </g>
+  <text class="s"><tspan x="528" y="210">Buyer and seller roles</tspan><tspan x="528" y="232">Production, component stock</tspan><tspan x="528" y="254">Selling price follows the cost</tspan><tspan x="528" y="276">actually paid upstream</tspan></text>
+
+  <!-- Retailers -->
+  <rect class="tier" x="860" y="90" width="240" height="250" rx="10" fill="#faf5ff" stroke="#9333ea"/>
+  <text x="878" y="116" class="t">Retailers</text><text x="1082" y="116" text-anchor="end" class="m">agents.py</text>
+  <g text-anchor="middle" class="c">
+    <rect class="chip" x="878" y="130" width="98" height="40" rx="6"/><text x="927" y="155">Retail-North</text>
+    <rect class="chip" x="984" y="130" width="98" height="40" rx="6"/><text x="1033" y="155">Retail-South</text>
+  </g>
+  <text class="s"><tspan x="878" y="210">Buyer role</tspan><tspan x="878" y="232">Demand forecast</tspan><tspan x="878" y="254">Base-stock ordering</tspan></text>
+
+  <!-- Customers -->
+  <rect x="1190" y="150" width="130" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="1255" y="200" text-anchor="middle" class="t">Customers</text>
+  <text x="1255" y="222" text-anchor="middle" class="s">random demand</text>
+
+  <!-- goods flow -->
+  <path class="goods" d="M422 205H506" marker-end="url(#g)"/><text x="464" y="196" text-anchor="middle" class="gl">components</text>
+  <path class="goods" d="M772 205H856" marker-end="url(#g)"/><text x="814" y="196" text-anchor="middle" class="gl">products</text>
+  <path class="goods" d="M1102 205H1186" marker-end="url(#g)"/><text x="1144" y="196" text-anchor="middle" class="gl">sales</text>
+
+  <!-- message links -->
+  <path class="msg" d="M230 342V408" marker-start="url(#a)" marker-end="url(#a)"/>
+  <path class="msg" d="M640 342V408" marker-start="url(#a)" marker-end="url(#a)"/>
+  <path class="msg" d="M980 342V408" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="242" y="380" class="s">sells</text><text x="652" y="380" class="s">buys and sells</text><text x="992" y="380" class="s">buys</text>
+
+  <!-- bus -->
+  <rect x="40" y="410" width="1060" height="84" rx="10" fill="#1e293b"/>
+  <text x="60" y="442" font-size="17" font-weight="700" fill="#fff">Message bus — the only link between agents (JSON on the wire)</text>
+  <text x="1082" y="442" text-anchor="end" font-size="12" fill="#cbd5e1" font-family="Menlo,Consolas,monospace">messaging.py</text>
+  <text x="60" y="472" font-size="14" fill="#e2e8f0" font-family="Menlo,Consolas,monospace">CFP → PROPOSE ⇄ PROPOSE → ACCEPT / REJECT / REFUSE → INFORM</text>
+  <rect x="1130" y="410" width="190" height="84" rx="10" fill="#f8fafc" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="1225" y="438" text-anchor="middle" class="c">Directory</text>
+  <text x="1225" y="460" text-anchor="middle" class="s">who sells what</text>
+  <text x="1225" y="480" text-anchor="middle" class="m">sell:component …</text>
+  <path class="msg" d="M1102 452H1128" marker-start="url(#a)" marker-end="url(#a)"/>
+
+  <!-- negotiation core -->
+  <rect x="40" y="540" width="780" height="200" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+  <text x="58" y="568" class="t">Inside every trading agent: the negotiation core</text><text x="802" y="568" text-anchor="end" class="m">negotiation.py</text>
+  <g>
+    <rect class="chip" x="58" y="590" width="220" height="130" rx="8"/>
+    <text x="72" y="616" class="c">Preferences</text>
+    <text class="s"><tspan x="72" y="642">Private utility over</tspan><tspan x="72" y="662">price and lead time</tspan><tspan x="72" y="690">aspiration → reservation</tspan></text>
+    <rect class="chip" x="310" y="590" width="220" height="130" rx="8"/>
+    <text x="324" y="616" class="c">Strategy</text>
+    <text class="s"><tspan x="324" y="642">Boulware · linear</tspan><tspan x="324" y="662">Conceder · tit-for-tat</tspan><tspan x="324" y="690">utility demanded now</tspan></text>
+    <rect class="chip" x="582" y="590" width="220" height="130" rx="8"/>
+    <text x="596" y="616" class="c">Negotiator</text>
+    <text class="s"><tspan x="596" y="642">For each incoming offer:</tspan><tspan x="596" y="662">accept, counter or refuse</tspan><tspan x="596" y="690">before a private deadline</tspan></text>
+    <text x="294" y="662" text-anchor="middle" font-size="22" fill="#334155">+</text>
+    <path class="msg" d="M536 655H576" marker-end="url(#a)"/>
+  </g>
+
+  <!-- simulation -->
+  <rect x="860" y="540" width="460" height="200" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <text x="878" y="568" class="t">Simulation and experiments</text>
+  <text x="878" y="604" class="m">simulation.py</text>
+  <text class="s"><tspan x="878" y="624">Runs the periods: deliveries, negotiations,</tspan><tspan x="878" y="644">customer demand, metrics, CSV export</tspan></text>
+  <text x="878" y="680" class="m">experiments.py</text>
+  <text class="s"><tspan x="878" y="700">Strategy tournament and whole-chain</tspan><tspan x="878" y="720">comparison by strategy</tspan></text>
+
+  <!-- legend -->
+  <path class="goods" d="M900 40H940" marker-end="url(#g)"/><text x="950" y="44" class="s">goods flow</text>
+  <path class="msg" d="M1050 40H1090" marker-start="url(#a)" marker-end="url(#a)"/><text x="1100" y="44" class="s">negotiation messages</text>
+</svg>

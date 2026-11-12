@@ -40,10 +40,7 @@ Options for the simulation: `--strategy {boulware,linear,conceder,tit_for_tat,mi
 | `simulation.py` | Multi-period simulation, default scenario, metrics, CSV export |
 | `experiments.py` | Strategy tournament and whole-chain strategy comparison |
 
-```
-Suppliers (+ external system via adapter)  --components-->  Manufacturers  --products-->  Retailers  -->  customers
-            sellers                                      buyers and sellers                 buyers
-```
+![Architecture diagram](docs/architecture.png)
 
 ## The negotiation agent
 
